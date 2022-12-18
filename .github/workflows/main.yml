@@ -22,6 +22,6 @@ jobs:
       - name: "login to doker hub"
         run: docker login --username ${{secrets.DOCKERNAME}} --password ${{secrets.DOCKERPASSWORD}}
       - name: "building image"
-        run: docker build -t ${{secrets.name}}/os-2_task .
+        run: docker build -t ${{secrets.DOCKERNAME}}/os-2_task .
       - name: "push image"
-        run: docker push ${{secrets.name}}/os-2_task
+        run: docker push ${{secrets.DOCKERNAME}}/os-2_task
