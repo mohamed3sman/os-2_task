@@ -1,0 +1,21 @@
+name: application
+
+on:
+  push:
+   branches: [ master ]
+  pull_request:
+    branches: [ master ]
+      
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+    
+      run: |
+        echo "${{ secrets.DOCKERPW }}" | docker login -u "mohamed122" --password "m s1220000##$"
+        docker image build -t mohamed122/os-2_task
+        docker push mohamed122/os-2_task
